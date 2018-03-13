@@ -11,9 +11,27 @@ public class PageController {
 	public ModelAndView index()
 	{
 		ModelAndView modelAndView = new ModelAndView("page");
-		modelAndView.addObject("message", "Welcome E Commerce");
-		
+		modelAndView.addObject("title", "Home");
+		modelAndView.addObject("userClickHome", true);
 		return modelAndView;
 	}
 	
+	@RequestMapping("/about")
+	public ModelAndView aboutPage() {
+		
+		ModelAndView model = new ModelAndView("page");
+		
+		model.addObject("title", "About Us");
+		model.addObject("userClickAbout", true);
+		return model;
+	}
+	@RequestMapping("/contact")
+	public ModelAndView contact() {
+		
+		ModelAndView model = new ModelAndView("page");
+		
+		model.addObject("title", "Contact");
+		model.addObject("userClickContact", true);
+		return model;
+	}
 }
