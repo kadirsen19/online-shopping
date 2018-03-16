@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.kadir.config.HibernateConfig;
 import com.kadir.dao.CatagoryDAO;
-import com.kadir.model.Catagory;
 
 public class CategoryTestCase {
 
@@ -21,7 +20,7 @@ public class CategoryTestCase {
 		
 		context= new AnnotationConfigApplicationContext(HibernateConfig.class);
 		context.scan("com.kadir");
-		catagoryDAO = context.getBean(CatagoryDAO.class);
+		catagoryDAO = context.getBean("catagoryDAO",CatagoryDAO.class);
 	}
 	/*@Test
 	public void testAddCategory() {
