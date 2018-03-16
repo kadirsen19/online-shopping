@@ -10,16 +10,15 @@
 	http://www.springframework.org/schema/context/spring-context-4.3.xsd
 	http://www.springframework.org/schema/mvc 
 	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
-   
-   <context:component-scan base-package="com.kadir.controller"/>
-   <context:component-scan base-package="com.kadir.dao"/>
+   	
+   <context:component-scan base-package="com.kadir.controller,com.kadir.config"/>
+   <context:component-scan base-package="com.kadir.dao,com.kadir.model"/>
    <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
-	<!-- Loading static resources -->
+	<!-- annotation driver olmadığı zaman 404 hatası alınır -->
 	<mvc:annotation-driven/>
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 </beans>

@@ -1,0 +1,4 @@
+Veri tabanı sürücü sınıfı: org.h2.Driver
+JDBC URL                 : jdbc:h2:tcp://localhost/~/onlineshopping
+Kullanıcı adı            : root
+Şifre					 : kadirsen
