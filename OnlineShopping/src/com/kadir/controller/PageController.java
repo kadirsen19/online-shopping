@@ -7,13 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kadir.dao.CatagoryDAO;
+import com.kadir.dao.ProductDAO;
 import com.kadir.model.Catagory;
+import com.kadir.model.Product;
 
 @Controller
 public class PageController {
 
 	@Autowired
 	private CatagoryDAO catagorydao;
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value= {"/","/home","/index"})
 	public ModelAndView index()
@@ -67,6 +71,23 @@ public class PageController {
 		modelAndView.addObject("listCatagory", catagorydao.list());
 		modelAndView.addObject("userClickCatagoryProducts", true);
 		modelAndView.addObject("catagory",catagory);
+		return modelAndView;
+	}
+	@RequestMapping("/show/{id}/product")
+	public ModelAndView showProduct(@PathVariable int id) {
+		
+	ModelAndView modelAndView = new ModelAndView("page");
+	
+		 Product product = productDAO.getProduct(id);
+		 
+		 //change the view's count of product
+		 product.setViews(product.getViews()+1);
+		 productDAO.updateProduct(product);
+		 
+		 modelAndView.addObject("title",product.getName());
+		 modelAndView.addObject("product", product);
+		 modelAndView.addObject("userClickShowProduct",true);
+		
 		return modelAndView;
 	}
 }

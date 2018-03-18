@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <spring:url var="css" value="/resources/css/" />
@@ -19,14 +19,15 @@
 <title>Online Shopping - ${title}</title>
 <script>
 	window.menu = '${title}';
-	window.contextRoot='${pageContext.request.contextPath}'
+	window.contextRoot = '${pageContext.request.contextPath}'
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap superHero Theme CSS -->
 <link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
-
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Bootstrap DataTable  CSS -->
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -55,8 +56,13 @@
 			<c:if test="${userClickContact==true }">
 				<%@ include file="contact.jsp"%>
 			</c:if>
-			<c:if test="${userClickAllProducts==true or userClickCatagoryProducts==true}">
+			<c:if
+				test="${userClickAllProducts==true or userClickCatagoryProducts==true}">
 				<%@ include file="listProducts.jsp"%>
+			</c:if>
+			<c:if
+				test="${userClickShowProduct==true}">
+				<%@ include file="productDetail.jsp"%>
 			</c:if>
 
 			<!-- /Page Content -->

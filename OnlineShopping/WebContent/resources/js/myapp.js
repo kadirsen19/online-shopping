@@ -40,6 +40,12 @@ $(function (){
 			},
 			columns:[
 						{
+							data:'code',
+							mRender:function(data,type,row){
+								return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class="dataTableImg"/>';
+							}
+						},
+						{
 							data:'name',
 						},
 						{
@@ -50,6 +56,15 @@ $(function (){
 						},
 						{
 							data:'quantity',
+						},
+						{
+							data:'id',
+							mRender:function(data,type,row){
+								var str='';
+								str+= '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><i class="fa fa-eye" style="font-size:24px"></i></a> &#160';
+								str+= '<a href="'+window.contextRoot+'/card/add/'+data+'/product "class="btn btn-success"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
+								return str;
+							}
 						}
 					]
 			

@@ -50,20 +50,24 @@
 						<thead>
 
 							<tr>
+								<th></th>
 								<th>NAME</th>
 								<th>BRAND</th>
 								<th>PRICE</th>
-								<th>Stock</th>
+								<th>STOCK</th>
+								<th>ACTION</th>
 							</tr>
 
 						</thead>
 						<tfoot>
 
 							<tr>
+								<th></th>
 								<th>NAME</th>
 								<th>BRAND</th>
 								<th>PRICE</th>
 								<th>Stock</th>
+								<th>ACTION</th>
 							</tr>
 
 						</tfoot>

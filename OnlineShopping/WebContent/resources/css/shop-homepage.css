@@ -28,6 +28,16 @@ body {
 	height: 60px;
 	
 }
+.dataTableImg{
+	
+	width: 100px;
+	height: 100px;
+}
+#productDetailImg{
+	
+	widows: 300px;
+	height: 300px;
+}
 
 @media ( min-width : 992px) {
 	body {
