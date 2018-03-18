@@ -19,12 +19,16 @@
 <title>Online Shopping - ${title}</title>
 <script>
 	window.menu = '${title}';
+	window.contextRoot='${pageContext.request.contextPath}'
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap superHero Theme CSS -->
 <link href="${css}/bootstrap-superhero-theme.css" rel="stylesheet">
+
+<!-- Bootstrap DataTable  CSS -->
+<link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
@@ -63,8 +67,11 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
+		<!-- DataTable Pluing -->
+		<script src="${js}/jquery.dataTables.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 		<script src="${js}/myapp.js"></script>
+		<script src="${js}/dataTables.bootstrap4.js"></script>
 	</div>
 </body>
 

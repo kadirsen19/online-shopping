@@ -12,7 +12,11 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<c:if test="${userClickAllProducts==true}">
-
+						
+						<!-- this is for getting all json type products -->
+						<script>
+							window.categoryId = '';
+						</script>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a
 								href="${pageContext.request.contextPath}/home">Home</a></li>
@@ -21,7 +25,10 @@
 
 					</c:if>
 					<c:if test="${userClickCatagoryProducts==true}">
-
+						<!-- this is for getting all json type products by ID -->
+						<script>
+							window.categoryId = '${catagory.id}';
+						</script>
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a
 								href="${pageContext.request.contextPath}/home">Home</a></li>
@@ -32,6 +39,41 @@
 					</c:if>
 				</div>
 			</div>
+
+			<div class="row">
+
+				<div class="col-lg-12">
+
+					<table id="productListTable"
+						class="table table-striped table-borderd">
+
+						<thead>
+
+							<tr>
+								<th>NAME</th>
+								<th>BRAND</th>
+								<th>PRICE</th>
+								<th>Stock</th>
+							</tr>
+
+						</thead>
+						<tfoot>
+
+							<tr>
+								<th>NAME</th>
+								<th>BRAND</th>
+								<th>PRICE</th>
+								<th>Stock</th>
+							</tr>
+
+						</tfoot>
+
+					</table>
+
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 
