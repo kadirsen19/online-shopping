@@ -1,5 +1,7 @@
 package com.kadir.controller;
 
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,8 @@ import com.kadir.model.Product;
 @Controller
 public class PageController {
 
+	private static final Logger logger=(Logger) LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CatagoryDAO catagorydao;
 	@Autowired
@@ -24,6 +28,10 @@ public class PageController {
 	{
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("title", "Home");
+		
+		logger.info("PageController - INFO");
+		logger.debug("PageController- DEBUG");
+		
 		modelAndView.addObject("userClickHome", true);
 		modelAndView.addObject("listCatagory", catagorydao.list());
 		return modelAndView;
@@ -90,4 +98,5 @@ public class PageController {
 		
 		return modelAndView;
 	}
+	
 }

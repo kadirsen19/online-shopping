@@ -36,6 +36,9 @@
 								<span class="text-danger">Price : ${product.unitPrice}</span>
 							</h4>
 							<hr>
+							<h4>
+								<span class="text-danger">Quantity : ${product.quantity}</span>
+							</h4>
 							<a class="btn btn-warning text-light" href="${pageContext.request.contextPath}/card/add/${product.id}/product">
 									<i class="fa fa-shopping-cart" style="font-size:24px"></i> &nbsp; Add To Card
 							</a>
@@ -43,7 +46,7 @@
 							&nbsp;
 							&nbsp;
 							&nbsp;
-							<a class="btn btn-warning text-light" href="${pageContext.request.contextPath}/showAllProducts">Back To List</a>
+							<a class="btn btn-primary text-light" href="${pageContext.request.contextPath}/showAllProducts"><i class="fa fa-toggle-left" style="font-size:24px"></i>&nbsp;Back To List</a>
 							
 						</div>
 					</div>
