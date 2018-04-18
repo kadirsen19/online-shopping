@@ -29,19 +29,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Bootstrap DataTable  CSS -->
 <link href="${css}/dataTables.bootstrap4.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
 <!-- manageProduct -->
 <link href="${css}/manageProduct.css" rel="stylesheet">
-
-
-
 </head>
 
 <body>
 	<div class="wrapper">
-
 		<!-- Navigation -->
 		<%@ include file="./shared/navbar.jsp"%>
 		<!-- /Navigation -->
@@ -80,6 +75,8 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.min.js"></script>
+		<script src="${js}/jquery.validate.js"></script>
+		<script src="${js}/additional-methods.js"></script>
 		<!-- DataTable Pluing -->
 		<script src="${js}/jquery.dataTables.js"></script>
 		<script src="${js}/bootstrap.bundle.min.js"></script>

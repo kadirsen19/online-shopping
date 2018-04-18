@@ -58,6 +58,9 @@ public class ManageProductController {
 			if(operation.equals("product")) {
 				modelAndView.addObject("message", "Product Successfully Saved");
 			}
+			else if(operation.equals("category")) {
+				modelAndView.addObject("message", "Category Successfully Saved");
+			}
 		}
 		
 		return modelAndView;
@@ -145,5 +148,21 @@ public class ManageProductController {
 		
 		return modelAndView;
 	}
+	
+	@ModelAttribute("category")
+	public Catagory getCategory() {
+		return new Catagory();
+	}
+	
+	@RequestMapping(value="/category" ,method=RequestMethod.POST)
+	public String  addCategory(@ModelAttribute("category")Catagory category) {
+		
+		categoryDAO.addCategory(category);
+		
+		return "redirect:/manage/manageProduct?operation=category";
+		
+	}
+		
+	
 	
 }

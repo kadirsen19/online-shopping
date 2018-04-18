@@ -208,4 +208,45 @@ $(function (){
 	
 	//----admin dataTable
 	
+	//---validation code for category
+	
+	var $categoryForm=$('#categoryForm');
+	if($categoryForm.length){
+		$categoryForm.validate({
+			
+			rules:{
+				name:{
+					required:true,
+					minlength: 2
+				},
+				description :{
+					required:true,
+				}
+			},
+			message:{
+				
+				
+				name:{
+					 required:'Add the category name!',
+					 minlength:'The category name should not be less than 2 characters'
+				}, 
+				description:{
+					required:'Add a description for category!'
+				},
+				errorElement:'em',
+				errorPlacement:function(error,element){
+					//help-block
+					error.addClass('help-block');
+					//add the error element after the input element
+					error.insertAfter(element)
+				}
+				
+			}
+		});
+		
+		
+	}
+	
+	//---validation code for category
+	
 });
