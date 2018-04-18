@@ -1,4 +1,5 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <div class="container">
 	<!-- Breadcrumb -->
 	<div class="row">
@@ -36,18 +37,45 @@
 								<span class="text-danger">Price : ${product.unitPrice}</span>
 							</h4>
 							<hr>
-							<h4>
-								<span class="text-danger">Quantity : ${product.quantity}</span>
-							</h4>
-							<a class="btn btn-warning text-light" href="${pageContext.request.contextPath}/card/add/${product.id}/product">
-									<i class="fa fa-shopping-cart" style="font-size:24px"></i> &nbsp; Add To Card
-							</a>
-							&nbsp;
-							&nbsp;
-							&nbsp;
-							&nbsp;
-							<a class="btn btn-primary text-light" href="${pageContext.request.contextPath}/showAllProducts"><i class="fa fa-toggle-left" style="font-size:24px"></i>&nbsp;Back To List</a>
-							
+
+							<c:choose>
+								<c:when test="${product.quantity < 1}">
+									<h4>
+										<h6>
+											Qty.Available: <span style="color:red">&nbsp;Out of Stock</span>
+										</h6>
+									</h4>
+								</c:when>
+								<c:otherwise>
+									<h4>
+										<span class="text-danger">Quantity :
+											${product.quantity}</span>
+									</h4>
+								</c:otherwise>
+							</c:choose>
+							<c:choose>
+								<c:when test="${product.quantity < 1}">
+									<a class="btn btn-warning text-light disabled"
+										href="javascript.void(0)"><strikethrough>
+										<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
+										&nbsp; Add To Card</strikethrough>
+									</a>
+								</c:when>
+								<c:otherwise>
+									<a class="btn btn-warning text-light"
+										href="${pageContext.request.contextPath}/card/add/${product.id}/product">
+										<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
+										&nbsp; Add To Card
+									</a>
+								</c:otherwise>
+
+							</c:choose>
+
+							&nbsp; &nbsp; &nbsp; &nbsp; <a class="btn btn-primary text-light"
+								href="${pageContext.request.contextPath}/showAllProducts"><i
+								class="fa fa-toggle-left" style="font-size: 24px"></i>&nbsp;Back
+								To List</a>
+
 						</div>
 					</div>
 				</div>

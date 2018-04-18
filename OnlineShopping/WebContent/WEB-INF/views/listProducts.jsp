@@ -46,9 +46,7 @@
 
 					<table id="productListTable"
 						class="table table-striped table-borderd">
-
 						<thead>
-
 							<tr>
 								<th></th>
 								<th>NAME</th>
@@ -57,10 +55,8 @@
 								<th>STOCK</th>
 								<th>ACTION</th>
 							</tr>
-
 						</thead>
 						<tfoot>
-
 							<tr>
 								<th></th>
 								<th>NAME</th>
@@ -69,17 +65,10 @@
 								<th>STOCK</th>
 								<th>ACTION</th>
 							</tr>
-
 						</tfoot>
-
 					</table>
-
 				</div>
-
 			</div>
-
 		</div>
 	</div>
-
-
 </div>

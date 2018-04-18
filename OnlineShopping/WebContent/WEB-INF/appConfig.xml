@@ -13,11 +13,15 @@
    	
    <context:component-scan base-package="com.kadir.controller,com.kadir.config"/>
    <context:component-scan base-package="com.kadir.dao,com.kadir.model"/>
-   <context:component-scan base-package="com.kadir.exceptions"/>
+   <context:component-scan base-package="com.kadir.exceptions,com.kadir.util"/>
    <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- id must be multipartResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	
 	</bean>
 	<!-- annotation driver olmadığı zaman 404 hatası alınır -->
 	<mvc:annotation-driven/>

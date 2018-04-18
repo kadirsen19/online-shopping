@@ -32,12 +32,10 @@ public class ProductDAOImp implements ProductDAO {
 
 	@Override
 	public List<Product> allProductList() {
-		String query = "From Product WHERE active =:active";
+		String query = " from Product ";
 
 		try {
 			TypedQuery<Product> typedQuery = sessionFactory.getCurrentSession().createQuery(query, Product.class);
-
-			typedQuery.setParameter("active", true);
 
 			return typedQuery.getResultList();
 

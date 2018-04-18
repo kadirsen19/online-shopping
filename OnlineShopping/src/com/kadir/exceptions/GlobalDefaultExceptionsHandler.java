@@ -15,10 +15,40 @@ public class GlobalDefaultExceptionsHandler {
 		
 		modelAndView.addObject("errorTitle", "The page not found");
 		
-		modelAndView.addObject("errorTitle", "Page is not available !");
+		modelAndView.addObject("globalException",true);
 		
 		modelAndView.addObject("title","404 Error Page");
 		
 		return modelAndView;
 	}
+	
+	@ExceptionHandler(Exception.class)
+	public ModelAndView productNotFoundGeneralExceptionHandler(Exception ex){
+		
+		ModelAndView modelAndView = new ModelAndView("error");
+		
+		modelAndView.addObject("errorTitle", "The page not found");
+		
+		modelAndView.addObject("productNotFountGeneralException",true);
+		
+		modelAndView.addObject("title","Product Not Available");
+		
+		return modelAndView;
+	}
+	
+	@ExceptionHandler(ProductExceptionHandler.class)
+	public ModelAndView productNotFoundExceptionHandler(){
+		
+		ModelAndView modelAndView = new ModelAndView("error");
+		
+		modelAndView.addObject("errorTitle", "The page not found");
+		
+		modelAndView.addObject("productNotFountException",true);
+		
+		modelAndView.addObject("title","Product Not Available");
+		
+		return modelAndView;
+	}
+	
+	
 }

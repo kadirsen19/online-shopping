@@ -7,10 +7,9 @@
 <spring:url var="images" value="/resources/images" />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -33,6 +32,10 @@
 
 <!-- Custom styles for this template -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
+<!-- manageProduct -->
+<link href="${css}/manageProduct.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -64,6 +67,10 @@
 				test="${userClickShowProduct==true}">
 				<%@ include file="productDetail.jsp"%>
 			</c:if>
+			<c:if
+				test="${userClickManageProduct==true}">
+				<%@ include file="manageProducts.jsp"%>
+			</c:if>
 
 			<!-- /Page Content -->
 		</div>
@@ -78,6 +85,8 @@
 		<script src="${js}/bootstrap.bundle.min.js"></script>
 		<script src="${js}/myapp.js"></script>
 		<script src="${js}/dataTables.bootstrap4.js"></script>
+		<!-- Bootbox js -->
+		<script src="${js}/bootbox.min.js"></script>
 	</div>
 </body>
 

@@ -20,6 +20,9 @@
             <li id="contact">
               <a class="nav-link" href="${pageContext.request.contextPath}/contact">Contact</a>
             </li>
+            <li id="manageProducts">
+              <a class="nav-link" href="${pageContext.request.contextPath}/manage/manageProduct">Product Manage</a>
+            </li>
           </ul>
         </div>
       </div>

@@ -1,7 +1,6 @@
 package com.kadir.controller;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,13 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kadir.dao.CatagoryDAO;
 import com.kadir.dao.ProductDAO;
+import com.kadir.exceptions.ProductExceptionHandler;
 import com.kadir.model.Catagory;
 import com.kadir.model.Product;
 
 @Controller
 public class PageController {
 
-	private static final Logger logger=(Logger) LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
 	private CatagoryDAO catagorydao;
@@ -29,8 +28,6 @@ public class PageController {
 		ModelAndView modelAndView = new ModelAndView("page");
 		modelAndView.addObject("title", "Home");
 		
-		logger.info("PageController - INFO");
-		logger.debug("PageController- DEBUG");
 		
 		modelAndView.addObject("userClickHome", true);
 		modelAndView.addObject("listCatagory", catagorydao.list());
@@ -82,11 +79,17 @@ public class PageController {
 		return modelAndView;
 	}
 	@RequestMapping("/show/{id}/product")
-	public ModelAndView showProduct(@PathVariable int id) {
+	public ModelAndView showProduct(@PathVariable int id) throws ProductExceptionHandler {
 		
 	ModelAndView modelAndView = new ModelAndView("page");
 	
 		 Product product = productDAO.getProduct(id);
+		 
+		 if(product ==null)
+		 {
+			 throw new ProductExceptionHandler();
+			
+		 }
 		 
 		 //change the view's count of product
 		 product.setViews(product.getViews()+1);
