@@ -101,5 +101,13 @@ public class PageController {
 		
 		return modelAndView;
 	}
-	
+	@RequestMapping("/register")
+	public ModelAndView register() {
+		
+		ModelAndView model = new ModelAndView("page");
+		
+		model.addObject("title", "About Us");
+		
+		return model;
+	}
 }

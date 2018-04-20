@@ -11,6 +11,10 @@ public interface UserDAO {
 	boolean addUser(User user);
 	User getUserByEmail(String email);
 	boolean addAddress(Address address);
+	/*alternative
+	Address getBillingAddress(int uderId);
+	List<Address> listShippingAddress(int uderId);
+	*/
 	Address getBillingAddress(User user);
 	List<Address> listShippingAddress(User user);
 	
