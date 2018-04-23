@@ -246,7 +246,5 @@ $(function (){
 		
 		
 	}
-	
 	//---validation code for category
-	
 });

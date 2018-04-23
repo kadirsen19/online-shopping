@@ -154,10 +154,9 @@
 				<h4  align="left"  class="modal-title">Add New Category</h4>
 			</div>
 			<div class="modal-body">
-				<!-- Category Form -->
-				<form:form id="categoryForm" modelAttribute="category" action="${pageContext.request.contextPath}/manage/category" 
+			<!-- Category Add Form -->
+			<form:form id="categoryForm" modelAttribute="category" action="${pageContext.request.contextPath}/manage/category" 
 				method="POST" class="form-horizontal">
-				
 					<div class="form-group">
 						<label for="category_name" class="control-label col-md-4">Category Name</label>
 							<div class="col-md-8">
@@ -175,9 +174,8 @@
 							<input type="submit" value="Add Category" class="btn btn-primary">
 							</div>
 					</div>
-				
-				</form:form>
-			
+			</form:form>
+			<!-- Categort Add Form -->
 			</div>
 		</div>
 

@@ -62,8 +62,9 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label form-control-label"></label>
 						<div class="col-lg-9">
-							<input type="reset" class="btn btn-secondary" value="Cancel">
-							<button type="submit" class="btn btn-primary" name="_eventId_billing">
+							<input type="reset" class="btn btn-danger"  value="Cancel">
+							&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="btn btn-success" name="_eventId_billing">
 								Next-Billing
 							</button>
 						</div>

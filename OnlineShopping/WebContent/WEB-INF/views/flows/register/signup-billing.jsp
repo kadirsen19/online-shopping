@@ -31,7 +31,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-lg-3 col-form-label form-control-label">State Number</label>
+						<label class="col-lg-3 col-form-label form-control-label">State</label>
 						<div class="col-lg-9">
 							<sf:input type="text" path="state" class="form-control"
 								placeholder="State" />
@@ -58,10 +58,11 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label form-control-label"></label>
 						<div class="col-lg-9">
-							<button type="submit" class="btn btn-secondary" name="_eventId_personal">
+							<button type="submit" class="btn btn-danger" name="_eventId_personal">
 								Previous-Personal
 							</button>
-							<button type="submit" class="btn btn-primary" name="_eventId_confirm">
+							&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="btn btn-success" name="_eventId_confirm">
 								Next-Confirm
 							</button>
 						</div>

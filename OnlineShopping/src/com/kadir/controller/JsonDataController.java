@@ -35,7 +35,6 @@ public class JsonDataController {
 		
 	}
 	
-	
 	@RequestMapping("/category/{id}/product")
 	@ResponseBody
 	public List<Product> getAllProductByCategryId(@PathVariable int id){
