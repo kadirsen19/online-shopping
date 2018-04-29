@@ -68,11 +68,9 @@ public class UserDAOImp implements UserDAO {
 						setParameter("email", email).
 							getSingleResult();
 		} catch (Exception e) {
-
 			e.printStackTrace();
 			return null;
 		}
-		
 		
 	}
 

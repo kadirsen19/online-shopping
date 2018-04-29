@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 
 @Entity
 @Table(name="address")
@@ -34,17 +36,23 @@ public class Address implements Serializable {
 		this.user = user;
 	}
 	/*---*/
+	@NotBlank(message="Please enter first address!")
 	@Column(name = "address_line_one")
 	private String addressLineOne;
 	@Column(name = "address_line_two")
+	@NotBlank(message="Please enter second address !")
 	private String addressLineTwo;
 	@Column(name = "city")
+	@NotBlank(message="Please enter city !")
 	private String city;
 	@Column(name = "state")
+	@NotBlank(message="Please enter state !")
 	private String state;
 	@Column(name = "country")
+	@NotBlank(message="Please enter country !")
 	private String country;
 	@Column(name = "postalCode")
+	@NotBlank(message="Please enter postal code !")
 	private String postalCode;
 	@Column(name="is_shipping")
 	private boolean shipping;

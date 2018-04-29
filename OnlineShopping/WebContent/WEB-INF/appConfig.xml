@@ -44,7 +44,7 @@
 	</wf:flow-registry>
 
 	<wf:flow-builder-services id="flowBuilderServices"
-		view-factory-creator="viewFactoryCreator" />
+		view-factory-creator="viewFactoryCreator" validator="validator"/>
 
 	<!-- Enables FlowHandler URL mapping -->
 	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
@@ -61,5 +61,8 @@
 			<property name="viewResolvers" ref="viewResolver"></property>
 	</bean>
 
-
+	<!-- Validator for Sign-up pages -->
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+	
 </beans>
