@@ -26,7 +26,12 @@
 		<div class="cloud x5"></div>
 	</div>
 	<div class='c'>
-		<div class='_404'>404</div>
+		<c:if test="${pageNumber403==true}">
+			<div class='_404'>403</div>
+		</c:if>
+		<c:if test="${pageNumber404==true}">
+			<div class='_404'>404</div>
+		</c:if>
 		<hr>
 		<c:if test="${productNotFountException==true }">
 			<div class='_1'>PRODUCT</div>
@@ -35,6 +40,10 @@
 		<c:if test="${globalException==true }">
 			<div class='_1' style=>THE PAGE</div>
 			<div class='_2'>WAS NOT FOUND</div>
+		</c:if>
+		<c:if test="${not empty message}">
+			<div class='_1' style=>YOU ARE</div>
+			<div class='_2'> NOT AUTHORIZED</div>
 		</c:if>
 		<c:if test="${productNotFountGeneralException== true }">
 			<div class='_1' style=>Contact</div>

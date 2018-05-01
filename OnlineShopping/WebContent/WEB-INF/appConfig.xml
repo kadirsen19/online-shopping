@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:wf="http://www.springframework.org/schema/webflow-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:wf="http://www.springframework.org/schema/webflow-config"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,11 +14,11 @@
 	http://www.springframework.org/schema/webflow-config 
 	http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
 
-
-	<context:component-scan base-package="com.kadir.controller,com.kadir.config" />
-	<context:component-scan base-package="com.kadir.dao,com.kadir.model" />
-	<context:component-scan base-package="com.kadir.exceptions,com.kadir.util" />
-	<context:component-scan base-package="com.kadir.registerHandler,com.kadir.registerModel" />
+		<context:component-scan base-package="com.kadir.controller,com.kadir.config" />
+		<context:component-scan base-package="com.kadir.dao,com.kadir.model" />
+		<context:component-scan base-package="com.kadir.exceptions,com.kadir.util" />
+		<context:component-scan base-package="com.kadir.registerHandler,com.kadir.registerModel" /> 
+	
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
@@ -34,7 +36,7 @@
 	<mvc:annotation-driven />
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
 
-	<!-- WEBFLOW CONFİ -->
+	<!-- WEBFLOW CONFİG -->
 	<!-- Entry point for the flow -->
 	
 	<wf:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
@@ -60,7 +62,7 @@
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator" >
 			<property name="viewResolvers" ref="viewResolver"></property>
 	</bean>
-
+	<!-- WEBFLOW CONFİG -->
 	<!-- Validator for Sign-up pages -->
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>

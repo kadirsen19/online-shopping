@@ -20,6 +20,17 @@ $(function (){
 		break;
 	}
 	
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	if(token.length > 0 && header.length > 0){
+		$(document).ajaxSend(function(e,xhr,options){
+			
+			xhr.setRequestHeader(header,token);
+		});
+	}
+	
+	
+	//code for jquery dataTable
 	var $table = $('#productListTable');
 	if($table.length){	
 		
@@ -77,7 +88,14 @@ $(function (){
 									str+= '<a href="javascript.void(0)"class="btn btn-success disabled"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
 									}
 								else{
-									str+= '<a href="'+window.contextRoot+'/card/add/'+data+'/product "class="btn btn-success"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
+									
+									if(userRole=='ADMIN'){
+										str+= '<a href="'+window.contextRoot+'/manage/'+data+'/product "class="btn btn-warning"><i class="fa fa-pencil" style="font-size:24px"></i></a>';
+									}
+									else{
+										str+= '<a href="'+window.contextRoot+'/card/add/'+data+'/product "class="btn btn-success"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
+									}
+									
 								}
 								
 								return str;
@@ -88,7 +106,7 @@ $(function (){
 		});
 		
 	}
-	
+	//code for jquery dataTable
 	var $alert=$('.alert');
 	if($alert.length){
 		setTimeout(function(){
@@ -209,7 +227,6 @@ $(function (){
 	//----admin dataTable
 	
 	//---validation code for category
-	
 	var $categoryForm=$('#categoryForm');
 	if($categoryForm.length){
 		$categoryForm.validate({
@@ -240,11 +257,42 @@ $(function (){
 					//add the error element after the input element
 					error.insertAfter(element)
 				}
-				
 			}
 		});
-		
-		
 	}
 	//---validation code for category
+	
+	
+	//--validation code for login
+	var $loginForm=$('#loginForm');
+	if($loginForm.length){
+		$loginForm.validate({
+			rules:{
+				username:{
+					required:true,
+					email: true
+				},
+				password :{
+					required:true,
+				}
+			},
+			message:{
+				username:{
+					 required:'Please enter username!',
+					 email:'Please enter valid email address!'
+				}, 
+				password:{
+					required:'Please enter password'
+				},
+				errorElement:'em',
+				errorPlacement:function(error,element){
+					//help-block
+					error.addClass('help-block');
+					//add the error element after the input element
+					error.insertAfter(element)
+				}
+			}
+		});
+	}
+	//--validation code for login
 });

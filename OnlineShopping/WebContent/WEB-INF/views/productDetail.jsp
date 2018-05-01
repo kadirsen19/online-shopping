@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <div class="container">
 	<!-- Breadcrumb -->
 	<div class="row">
@@ -53,24 +54,36 @@
 									</h4>
 								</c:otherwise>
 							</c:choose>
-							<c:choose>
-								<c:when test="${product.quantity < 1}">
-									<a class="btn btn-warning text-light disabled"
-										href="javascript.void(0)"><strikethrough>
-										<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
-										&nbsp; Add To Card</strikethrough>
-									</a>
-								</c:when>
-								<c:otherwise>
-									<a class="btn btn-warning text-light"
-										href="${pageContext.request.contextPath}/card/add/${product.id}/product">
-										<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
-										&nbsp; Add To Card
-									</a>
-								</c:otherwise>
-
-							</c:choose>
-
+							
+							<security:authorize access="hasAuthority('USER')">
+								<c:choose>
+									<c:when test="${product.quantity < 1}">
+										<a class="btn btn-warning text-light disabled"
+											href="javascript.void(0)"><strikethrough>
+											<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
+											&nbsp; Add To Card</strikethrough>
+										</a>
+									</c:when>
+									<c:otherwise>
+										<a class="btn btn-warning text-light"
+											href="${pageContext.request.contextPath}/card/add/${product.id}/product">
+											<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
+											&nbsp; Add To Card
+										</a>
+									</c:otherwise>
+	
+								</c:choose>
+							</security:authorize>
+							
+							<security:authorize access="hasAuthority('ADMIN')">
+							
+								<a class="btn btn-warning text-light"
+												href="${pageContext.request.contextPath}/manage/${product.id}/product">
+												<i class="fa fa-pencil" style="font-size: 24px"></i>
+												&nbsp; Edit
+											</a>
+							</security:authorize>
+							
 							&nbsp; &nbsp; &nbsp; &nbsp; <a class="btn btn-primary text-light"
 								href="${pageContext.request.contextPath}/showAllProducts"><i
 								class="fa fa-toggle-left" style="font-size: 24px"></i>&nbsp;Back

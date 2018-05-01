@@ -104,9 +104,7 @@
 				<!-- Product table for Admin -->
 				<table id="adminProductTable"
 					class="table table-striped table-bordered">
-
 					<thead>
-
 						<tr>
 							<th>ID</th>
 							<th></th>
@@ -116,9 +114,7 @@
 							<th>PRICE</th>
 							<th>ACTIVATION</th>
 							<th>EDIT</th>
-
 						</tr>
-
 					</thead>
 					<tfoot>
 						<tr>
@@ -134,12 +130,9 @@
 					</tfoot>
 				</table>
 			</div>
-
 		</div>
 	</div>
-
 </div>
-
 <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
 
 	<div class="modal-dialog" role="document">
@@ -184,7 +177,7 @@
 
 </div>
 
-<script src="js/main.js"></script>
+
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

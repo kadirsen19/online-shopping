@@ -19,6 +19,8 @@ public class GlobalDefaultExceptionsHandler {
 		
 		modelAndView.addObject("title","404 Error Page");
 		
+		modelAndView.addObject("pageNumber404", true);
+		
 		return modelAndView;
 	}
 	
