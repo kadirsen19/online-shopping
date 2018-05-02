@@ -13,7 +13,7 @@
 	<context:component-scan base-package="com.kadir.model"/>
 	
 	<beans:bean id="passwordEncode" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-	
+		
 	<http pattern="/resources/**" security="none"/>
 
 	<http>

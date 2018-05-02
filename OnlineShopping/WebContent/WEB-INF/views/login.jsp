@@ -53,14 +53,14 @@
 		<!-- this will be display username and password are wrong -->
 			<c:if test="${not empty message}">
 				<div class="text-right">
-					<div class="col-md-12 mx-auto">
+					<div class="col-md-12 ">
 						<div class="alert alert-danger">${message}</div>
 					</div>
 				</div>
 			</c:if>
 			<c:if test="${not empty logout}">
 				<div class="text-right">
-					<div class="col-md-12 mx-auto">
+					<div class="col-md-12 ">
 						<div class="alert alert-success">${logout}</div>
 					</div>
 				</div>

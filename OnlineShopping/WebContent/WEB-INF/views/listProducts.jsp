@@ -43,8 +43,11 @@
 			<div class="row">
 
 				<div class="col-lg-12">
-
-					<table id="productListTable"
+					<div class="container-fluid">
+					
+						<div class="table-responsive">
+						
+						<table id="productListTable"
 						class="table table-striped table-borderd">
 						<thead>
 							<tr>
@@ -67,6 +70,10 @@
 							</tr>
 						</tfoot>
 					</table>
+						</div>
+					
+					</div>
+					
 				</div>
 			</div>
 		</div>

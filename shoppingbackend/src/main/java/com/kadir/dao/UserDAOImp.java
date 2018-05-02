@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.kadir.model.Address;
-import com.kadir.model.Cart;
 import com.kadir.model.User;
 
 @Repository("userDAO")
@@ -44,18 +43,6 @@ public class UserDAOImp implements UserDAO {
 		}
 	}
 
-	@Override
-	public boolean updateCart(Cart cart) {
-		try {
-			sessionFactory.getCurrentSession().update(cart);
-			return true;
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public User getUserByEmail(String email) {
@@ -68,7 +55,7 @@ public class UserDAOImp implements UserDAO {
 						setParameter("email", email).
 							getSingleResult();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			return null;
 		}
 		

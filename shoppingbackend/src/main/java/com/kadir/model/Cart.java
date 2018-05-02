@@ -22,15 +22,15 @@ public class Cart implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private int id;
 	/* ---- */
-	@OneToOne
-	private User user;
-
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+		@OneToOne
+		private User user;
+	
+		public User getUser() {
+			return user;
+		}
+		public void setUser(User user) {
+			this.user = user;
+		}
 	/* ---- */
 	
 	@Column(name = "grand_total")

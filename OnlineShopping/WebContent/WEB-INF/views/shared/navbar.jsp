@@ -45,9 +45,10 @@
 						</a>
 							<ul class="dropdown-menu">
 							<security:authorize access="hasAuthority('USER')">
-								<li><a  href="${pageContext.request.contextPath}/cart"></a> 
+								<li><a href="${pageContext.request.contextPath}/cart/show"> 
 									<span><i class="fa fa-shopping-basket" style="font-size: 24px"></i>&nbsp;&nbsp;</span> 
 									<span class="badge">${userModel.cart.cartLines}</span> ${userModel.cart.grandTotal} TL
+									</a>
 								</li>
 								<li class="divider" role="separator"></li>
 							</security:authorize>

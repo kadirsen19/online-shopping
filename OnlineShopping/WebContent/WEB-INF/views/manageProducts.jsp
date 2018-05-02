@@ -93,15 +93,16 @@
 	</div>
 
 	<div class="row">
-
 		<div class="container">
-			<h3>Available Product</h3>
+		<br>
+			<h3 align="center">Available Products</h3>
 
 			<hr />
 		</div>
 		<div class="container">
-			<div style="overflow: auto;">
-				<!-- Product table for Admin -->
+			<div class="container-fluid">
+				<div class="table-responsive">
+					<!-- Product table for Admin -->
 				<table id="adminProductTable"
 					class="table table-striped table-bordered">
 					<thead>
@@ -129,6 +130,7 @@
 						</tr>
 					</tfoot>
 				</table>
+				</div>
 			</div>
 		</div>
 	</div>

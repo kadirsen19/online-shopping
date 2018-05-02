@@ -83,19 +83,17 @@ $(function (){
 								var str='';
 								str+= '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><i class="fa fa-eye" style="font-size:24px"></i></a> &#160';
 								
-								if(row.quantity < 1)
+								if(userRole=='ADMIN'){
+									str+= '<a href="'+window.contextRoot+'/manage/'+data+'/product "class="btn btn-warning"><i class="fa fa-pencil" style="font-size:24px"></i></a>';
+								}
+								else{
+									if(row.quantity < 1)
 									{
 									str+= '<a href="javascript.void(0)"class="btn btn-success disabled"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
-									}
-								else{
-									
-									if(userRole=='ADMIN'){
-										str+= '<a href="'+window.contextRoot+'/manage/'+data+'/product "class="btn btn-warning"><i class="fa fa-pencil" style="font-size:24px"></i></a>';
 									}
 									else{
 										str+= '<a href="'+window.contextRoot+'/card/add/'+data+'/product "class="btn btn-success"><i class="fa fa-shopping-basket" style="font-size:24px"></i></a>';
 									}
-									
 								}
 								
 								return str;
