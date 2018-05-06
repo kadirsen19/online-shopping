@@ -2,7 +2,9 @@
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
 
-<c:if test="${not empty message}">
+<c:if test="${newCartLineAdd==true}">
+
+	<c:if test="${not empty message}">
 	<div class="alert alert-info">
 
 		<h3 class="text-center">${message}</h3>
@@ -10,6 +12,21 @@
 	</div>
 
 </c:if>
+
+</c:if>
+<c:if test="${newCartLineAdd==false}">
+
+	<c:if test="${not empty message}">
+	<div class="alert alert-danger">
+
+		<h3 class="text-center">${message}</h3>
+
+	</div>
+
+</c:if>
+
+</c:if>
+
 
 <c:choose>
 	<c:when test="${not empty cartLines}">

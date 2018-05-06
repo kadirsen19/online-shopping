@@ -83,34 +83,7 @@ public class CartService {
 		
 		
 	}
-	public String addProduct(int id) {
-		Cart cart = this.getCartOfUser();
-		String response = null;
-		CartLine cartLine = cartLineDAO.getByCartAndProduct(cart.getId(), id);
-		
-		if(cartLine==null) {
-			// add a new cartLine if a new product is getting added
-			cartLine = new CartLine();
-			Product product = productDAO.getProduct(id);
-			// transfer the product details to cartLine
-			cartLine.setCartId(cart.getId());
-			cartLine.setProduct(product);
-			cartLine.setProductCount(1);
-			cartLine.setBuyingPrice(product.getUnitPrice());
-			cartLine.setTotal(product.getUnitPrice());
-			
-			// insert a new cartLine
-			cartLineDAO.addCartLine(cartLine);
-			
-			// update the cart
-			cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
-			cart.setCartLines(cart.getCartLines() + 1);
-			cartLineDAO.updateCart(cart);
-
-			response = "result=added";
-		}
-		return response;
-	} 
+	
 }
 	
 

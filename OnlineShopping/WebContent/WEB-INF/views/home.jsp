@@ -60,6 +60,10 @@
 								<h5>${allProductlist.unitPrice}</h5>
 								<p class="card-text">${allProductlist.description}</p>
 							</div>
+							<div class="text-right">
+								<a type="button" href="${pageContext.request.contextPath}/show/${allProductlist.id}/product" 
+									class="btn btn-info">View</a>
+							</div>
 							<div class="card-footer">
 								<small class="text-muted">&#9733; &#9733; &#9733; &#9733;
 									&#9734;</small>

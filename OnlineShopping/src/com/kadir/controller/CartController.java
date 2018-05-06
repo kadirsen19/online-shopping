@@ -49,9 +49,6 @@ public class CartController {
 			case "delete":
 				modelAndView.addObject("message", "CartLine removed successfully!");
 				break;
-			/*case "added":
-				modelAndView.addObject("message", "Product added successfully!");
-				break;*/
 			case "error":
 				modelAndView.addObject("message", "Something went wrong!");
 				break;
@@ -75,20 +72,8 @@ public class CartController {
 	public String updateCart(@PathVariable int cartLineId) {
 		
 		String response= cartService.deleteCartLine(cartLineId);
-		
-		
 		return "redirect:/cart/show?"+response;
 	}
-	
-	/*@RequestMapping("/add/{productId}/product")
-	public String addCartLine(@PathVariable int productId) {
-		
-		Note :--->this method is not wroking :(
-		
-		String response = cartService.addProduct(productId);
-		
-		return "redirect:/cart/show?"+response;
-	}*/
 	
 	@RequestMapping("/add/{id}/product")
 	public ModelAndView addCartLine(@PathVariable int id) {
@@ -101,25 +86,39 @@ public class CartController {
 		//3.get the product
 		Product product= productDAO.getProduct(id);
 		//4.create a new cartLine
-		CartLine cartLine = new CartLine();
 		
-		cartLine.setBuyingPrice(product.getUnitPrice());
-		cartLine.setProductCount(cartLine.getProductCount()+1);
-		cartLine.setTotal(cartLine.getProductCount()* product.getUnitPrice());
-		cartLine.setAvailable(true);
-		cartLine.setCartId(cart.getId());
-		cartLine.setProduct(product);
-		cartLineDAO.addCartLine(cartLine);
+		CartLine cartLine= cartLineDAO.getByCartAndProduct(cart.getId(), id);
+		if(cartLine==null) {
+			
+			cartLine = new CartLine();
+			cartLine.setBuyingPrice(product.getUnitPrice());
+			cartLine.setProductCount(cartLine.getProductCount()+1);
+			cartLine.setTotal(cartLine.getProductCount()* product.getUnitPrice());
+			cartLine.setAvailable(true);
+			cartLine.setCartId(cart.getId());
+			cartLine.setProduct(product);
+			cartLineDAO.addCartLine(cartLine);
+			
+			//update the cart
+			cart.setGrandTotal(cart.getGrandTotal()+ cartLine.getTotal());
+			cart.setCartLines(cart.getCartLines()+1);
+			
+			cartLineDAO.updateCart(cart);
+			
+			modelAndView.addObject("title","User Cart");
+			modelAndView.addObject("userClickShowCart",true);
+			modelAndView.addObject("cartLines",cartService.getCartLines());
+			modelAndView.addObject("message", "Product added successfully!");
+			modelAndView.addObject("newCartLineAdd", true);
+		}
+		else {
+			modelAndView.addObject("title","User Cart");
+			modelAndView.addObject("userClickShowCart",true);
+			modelAndView.addObject("cartLines",cartService.getCartLines());
+			modelAndView.addObject("message", "Product already available!");
+			modelAndView.addObject("newCartLineAdd", false);
+		}
 		
-		//update the cart
-		cart.setGrandTotal(cart.getGrandTotal()+ cartLine.getTotal());
-		cart.setCartLines(cart.getCartLines()+1);
-		
-		cartLineDAO.updateCart(cart);
-		
-		modelAndView.addObject("title","User Cart");
-		modelAndView.addObject("userClickShowCart",true);
-		modelAndView.addObject("cartLines",cartService.getCartLines());
 		return modelAndView;
 		
 	}
