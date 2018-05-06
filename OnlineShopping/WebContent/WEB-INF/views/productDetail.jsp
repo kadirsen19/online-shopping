@@ -66,7 +66,7 @@
 									</c:when>
 									<c:otherwise>
 										<a class="btn btn-warning text-light"
-											href="${pageContext.request.contextPath}/card/add/${product.id}/product">
+											href="${pageContext.request.contextPath}/cart/add/${product.id}/product">
 											<i class="fa fa-shopping-cart" style="font-size: 24px"></i>
 											&nbsp; Add To Card
 										</a>

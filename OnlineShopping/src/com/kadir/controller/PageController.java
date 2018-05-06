@@ -35,6 +35,7 @@ public class PageController {
 
 		modelAndView.addObject("userClickHome", true);
 		modelAndView.addObject("listCatagory", catagorydao.list());
+		modelAndView.addObject("product",productDAO.activeProductList());
 		return modelAndView;
 	}
 

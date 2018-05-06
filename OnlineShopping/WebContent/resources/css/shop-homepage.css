@@ -144,6 +144,14 @@ input:checked + .slider:before {
 	
 }
 
+.cartImg{
+	width: 100px;
+	height: 100px;
+}
+.unavailable{
+	color: red;
+}
+
 /*cart css*/
 @media ( min-width : 992px) {
 	body {

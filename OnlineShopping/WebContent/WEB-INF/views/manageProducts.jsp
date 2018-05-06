@@ -135,6 +135,8 @@
 		</div>
 	</div>
 </div>
+
+<!-- Add a new Category -->
 <div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1">
 
 	<div class="modal-dialog" role="document">
@@ -150,6 +152,7 @@
 			</div>
 			<div class="modal-body">
 			<!-- Category Add Form -->
+			
 			<form:form id="categoryForm" modelAttribute="category" action="${pageContext.request.contextPath}/manage/category" 
 				method="POST" class="form-horizontal">
 					<div class="form-group">

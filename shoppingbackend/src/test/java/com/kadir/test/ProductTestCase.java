@@ -7,13 +7,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.kadir.config.HibernateConfig;
 import com.kadir.dao.ProductDAO;
-//import com.kadir.model.Product;
+import com.kadir.model.Product;
 
 public class ProductTestCase {
 
 	private static AnnotationConfigApplicationContext context;
 	private static ProductDAO productDAO;
-	//private Product product;
+	private Product product;
 	@BeforeClass
 	public static void init() {
 		
@@ -22,7 +22,7 @@ public class ProductTestCase {
 		productDAO = context.getBean("productDAO",ProductDAO.class);
 	}
 	
-	/*@Test
+	@Test
 	public void testGetProduct() {
 		
 		product = productDAO.getProduct(2);
@@ -31,7 +31,7 @@ public class ProductTestCase {
 		assertEquals("Success getting product", "Samsung s7", product.getName());
 		
 	}
-	@Test
+	/*@Test
 	public void testGetListProduct() {
 		
 		assertEquals("Getting success list product", 5, productDAO.allProductList().size());

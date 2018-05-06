@@ -77,7 +77,6 @@ public class CartLineDAOImp implements CartLineDAO {
 		return sessionFactory.getCurrentSession().createQuery(query, CartLine.class)
 												 .setParameter("cartId", cartId)
 												 .getResultList();
-		
 	}
 
 	@Override
@@ -109,7 +108,7 @@ public class CartLineDAOImp implements CartLineDAO {
 		
 	}
 	
-	//releted to cart
+	//related to cart
 	@Override
 	public boolean updateCart(Cart cart) {
 		try {

@@ -2,6 +2,15 @@
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet">
 
+<c:if test="${not empty message}">
+	<div class="alert alert-info">
+
+		<h3 class="text-center">${message}</h3>
+
+	</div>
+
+</c:if>
+
 <c:choose>
 	<c:when test="${not empty cartLines}">
 		<div class="container">
@@ -16,45 +25,56 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td data-th="Product">
-							<div class="row">
-								<div class="col-sm-3 hidden-xs">
-									<img src="http://placehold.it/100x100" alt="..."
-										class="img-responsive" />
+
+					<c:forEach items="${cartLines}" var="cartLine">
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-3 hidden-xs">
+										<img src="${images}/${cartLine.product.code}.jpg" width="100"
+											height="100" alt="${cartLine.product.name}"
+											class="img-responsive cartImg" />
+									</div>
+									<div class="col-sm-9">
+										<h4 class="nomargin">${cartLine.product.name}
+
+											<c:if test="${cartLine.available == false}">
+
+												<strong class="unavailable">(Not Available)</strong>
+
+											</c:if>
+										</h4>
+										<p>Brand -${cartLine.product.brand.toUpperCase()}</p>
+										<p>Description -${cartLine.product.description}</p>
+									</div>
 								</div>
-								<div class="col-sm-9">
-									<h4 class="nomargin">Product 1</h4>
-									<p>Quis aute iure reprehenderit in voluptate velit esse
-										cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit
-										amet.</p>
-								</div>
-							</div>
-						</td>
-						<td data-th="Price">$1.99</td>
-						<td data-th="Quantity"><input type="number"
-							class="form-control text-center" value="1"></td>
-						<td data-th="Subtotal" class="text-center">1.99</td>
-						<td class="actions" data-th="">
-							<button class="btn btn-info btn-sm">
-								<i class="fa fa-refresh"></i>
-							</button>
-							<button class="btn btn-danger btn-sm">
-								<i class="fa fa-trash-o"></i>
-							</button>
-						</td>
-					</tr>
+							</td>
+							<td data-th="Price">${cartLine.buyingPrice}-TL</td>
+							<td data-th="Quantity"><input type="number"
+								id="count_${cartLine.id}" min="1" max="3"
+								class="form-control text-center"
+								value="${cartLine.productCount}"></td>
+							<td data-th="Subtotal" class="text-center">${cartLine.total}-TL</td>
+							<td class="actions" data-th="">
+								<button type="button" name="refreshCart" value="${cartLine.id}"
+									class="btn btn-info btn-sm">
+									<i class="fa fa-refresh"></i>
+								</button> &nbsp;
+								<a href="${pageContext.request.contextPath}/cart/${cartLine.id}/delete" class="btn btn-danger btn-sm">
+									<i class="fa fa-trash-o"></i>
+								</a>
+							</td>
+						</tr>
+					</c:forEach>
+
 				</tbody>
 				<tfoot>
-					<tr class="visible-xs">
-						<td class="text-center"><strong>Total 1.99</strong></td>
-					</tr>
+					
 					<tr>
 						<td><a href="#" class="btn btn-warning"><i
 								class="fa fa-angle-left"></i> Continue Shopping</a></td>
 						<td colspan="2" class="hidden-xs"></td>
-						<td class="hidden-xs text-center"><strong>Total
-								$1.99</strong></td>
+						<td class="hidden-xs text-center"><strong>Total  :${userModel.cart.grandTotal}-TL</strong></td>
 						<td><a href="#" class="btn btn-success btn-block">Checkout
 								<i class="fa fa-angle-right"></i>
 						</a></td>
